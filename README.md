@@ -11,26 +11,38 @@ The following items must be installed:
 
 ## Dependencies
 
-The following Java packages are required.  The `mvn` process should automatically dowload and install the packages, see `pom.xml` for details:
+The following Java packages are required.  The `mvn` process automatically dowloads and installs the packages, see `pom.xml` for details:
 
-- `javax.ws.rs`
-  - `javax.ws.rs-api`
-- `com.googlecode.json-simple`
-  - `json-simple`
-- `javax.servlet`
-  - `servlet-api`
+```
+    <dependencies>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.3</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+```
 
 ## Build
 
-Run "maven" processes to clean, compile and install the packages:
+Run "maven" processes to clean, compile pacakge and install:
 
-`mvn clean`
+`mvn clean compile package install`
 
-`mvn compile`
-
-`mvn install`
-
-Packages are add to the user's home folder: 
+Packages are added to the user's home folder: 
 
 `~/.m2/repository/com/forgerock/frdp/frdp-framework`
 
