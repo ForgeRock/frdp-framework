@@ -9,41 +9,27 @@ The following items must be installed:
 1. [Apache Maven](https://maven.apache.org/)
 1. [Java Development Kit 8](https://openjdk.java.net/)
 
-## Dependencies
-
-The following Java packages are required.  The `mvn` process automatically dowloads and installs the packages, see `pom.xml` for details:
-
-```
-    <dependencies>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>2.0</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.3</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
-```
-
 ## Build
 
-Run "maven" processes to clean, compile pacakge and install:
+Run "maven" processes to clean, compile, install:
 
-`mvn clean compile package install`
+```
+mvn clean
+mvn compile
+mvn install
+```
 
-Packages are added to the user's home folder: 
+Packages are added to the user's home folder:
 
-`~/.m2/repository/com/forgerock/frdp/frdp-framework`
+```
+find ~/.m2/repository/com/forgerock/frdp/frdp-framework
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/maven-metadata-local.xml
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/frdp-framework-1.0.0.pom
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/_remote.repositories
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/maven-metadata-local.xml
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/frdp-framework-1.0.0.jar
+```
 
 ----
