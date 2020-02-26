@@ -33,9 +33,9 @@ Packages are added to the user's home folder:
 find ~/.m2/repository/com/forgerock/frdp/frdp-framework
 /home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework
 /home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/maven-metadata-local.xml
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/frdp-framework-1.0.0.pom
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/_remote.repositories
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/maven-metadata-local.xml
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.0.0/frdp-framework-1.0.0.jar
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/frdp-framework-1.1.0.pom
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/_remote.repositories
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/maven-metadata-local.xml
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/frdp-framework-1.1.0.jar
 ```

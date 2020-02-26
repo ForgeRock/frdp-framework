@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2015-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.rest;
 
 import com.forgerock.frdp.common.BasicData;
@@ -96,7 +95,7 @@ public abstract class Resource extends Core implements ResourceIF {
       cred = new Credential(CredentialIF.Type.PROXY);
 
       _logger.log(Level.FINE, "propUserName=''{0}'', propPassword=''{1}''",
-            new Object[] { propUserName != null ? propUserName : NULL, propPassword != null ? propPassword : NULL });
+         new Object[]{propUserName != null ? propUserName : NULL, propPassword != null ? propPassword : NULL});
 
       if (!STR.isEmpty(propUserName)) {
          username = this.getParam(propUserName);
@@ -139,7 +138,7 @@ public abstract class Resource extends Core implements ResourceIF {
     * Get HTTP Header cookie value
     *
     * @param headers HttpHeaders
-    * @param name    Header name
+    * @param name Header name
     * @return String Header value
     */
    protected String getCookieValue(final HttpHeaders headers, final String name) {
@@ -192,14 +191,14 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Create CredentialIF object from Cookie value in the HTTP Headers
-    * 
-    * @param headers    HttpHeaders
+    *
+    * @param headers HttpHeaders
     * @param cookieName name of the cookie in the headers
-    * @param type       credential type
+    * @param type credential type
     * @return CredentialIF object
     */
    protected CredentialIF getCredentialFromCookie(final HttpHeaders headers, final String cookieName,
-         final CredentialIF.Type type) {
+      final CredentialIF.Type type) {
       String METHOD = Thread.currentThread().getStackTrace()[1].getMethodName();
       String cookieValue = null;
       CredentialIF cred = null;
@@ -231,8 +230,8 @@ public abstract class Resource extends Core implements ResourceIF {
       }
 
       if (_logger.isLoggable(Level.FINE)) {
-         _logger.log(Level.FINE, "cookieName=''{0}'', cookieValue=''{1}'', cred=''{2}''", new Object[] {
-               cookieName != null ? cookieName : NULL, cookieValue != null ? cookieValue : NULL, cred.toString() });
+         _logger.log(Level.FINE, "cookieName=''{0}'', cookieValue=''{1}'', cred=''{2}''", new Object[]{
+            cookieName != null ? cookieName : NULL, cookieValue != null ? cookieValue : NULL, cred.toString()});
       }
 
       _logger.exiting(CLASS, METHOD);
@@ -242,7 +241,7 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Get Response object from the DataIF object
-    * 
+    *
     * @param data DataIF object
     * @return Response
     */
@@ -255,7 +254,7 @@ public abstract class Resource extends Core implements ResourceIF {
       _logger.entering(CLASS, METHOD);
 
       if (_logger.isLoggable(Level.FINE)) {
-         _logger.log(Level.FINE, "data=''{0}''", new Object[] { data != null ? data.toString() : NULL });
+         _logger.log(Level.FINE, "data=''{0}''", new Object[]{data != null ? data.toString() : NULL});
       }
 
       if (data == null) {
@@ -266,23 +265,23 @@ public abstract class Resource extends Core implements ResourceIF {
       }
 
       switch (data.getState()) {
-      case ERROR:
-         _logger.log(Level.SEVERE, "{0} : {1}", new Object[] { data.getState().toString(), data.getStatus() });
-         break;
-      case FAILED:
-      case WARNING:
-      case NOTAUTHORIZED:
-      case NOTEXIST:
-      case NOTREADY:
-         _logger.log(Level.WARNING, "{0} : {1}", new Object[] { data.getState().toString(), data.getStatus() });
-         break;
-      case NEW:
-      case READY:
-      case SUCCESS:
-         if (_logger.isLoggable(Level.FINE)) {
-            _logger.log(Level.FINE, "{0} : {1}", new Object[] { data.getState().toString(), data.getStatus() });
-         }
-         break;
+         case ERROR:
+            _logger.log(Level.SEVERE, "{0} : {1}", new Object[]{data.getState().toString(), data.getStatus()});
+            break;
+         case FAILED:
+         case WARNING:
+         case NOTAUTHORIZED:
+         case NOTEXIST:
+         case NOTREADY:
+            _logger.log(Level.WARNING, "{0} : {1}", new Object[]{data.getState().toString(), data.getStatus()});
+            break;
+         case NEW:
+         case READY:
+         case SUCCESS:
+            if (_logger.isLoggable(Level.FINE)) {
+               _logger.log(Level.FINE, "{0} : {1}", new Object[]{data.getState().toString(), data.getStatus()});
+            }
+            break;
       }
 
       obj = data.getObject();
@@ -293,7 +292,7 @@ public abstract class Resource extends Core implements ResourceIF {
       }
 
       response = Response.status(this.getStatusFromState(data.getState())).type(MediaType.APPLICATION_JSON_TYPE)
-            .entity((str != null ? str : data.getStatus())).build();
+         .entity((str != null ? str : data.getStatus())).build();
 
       _logger.exiting(CLASS, METHOD);
 
@@ -302,9 +301,9 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Read property file and load values as parameters
-    * 
+    *
     * @param propFileName name of the property file
-    * @throws Exception
+    * @throws Exception could not load parameters from properties file
     */
    protected final void loadParamsFromProperties(final String propFileName) throws Exception {
       String METHOD = Thread.currentThread().getStackTrace()[1].getMethodName();
@@ -332,11 +331,11 @@ public abstract class Resource extends Core implements ResourceIF {
    }
 
    /**
-    * Read JOSN file and load values as parameters
-    * 
+    * Read JSON file and load values as parameters
+    *
     * @param fileName pathname/filename from deployment locations
-    *                 (FILESYSTEM/themes/themes.json) { "id" : "themes/default" }
-    * @throws Exception
+    * (FILESYSTEM/themes/themes.json) { "id" : "themes/default" }
+    * @throws Exception could not load parameters from JSON file
     */
    protected final void loadParamsFromJSON(final String fileName) throws Exception {
       byte[] bytes = null;
@@ -357,7 +356,7 @@ public abstract class Resource extends Core implements ResourceIF {
 
          if (_logger.isLoggable(Level.FINE)) {
             _logger.log(Level.FINE, "filesystemPath=''{0}'', fileName=''{1}''",
-                  new Object[] { filesystemPath, fileName });
+               new Object[]{filesystemPath, fileName});
          }
 
          parser = new JSONParser();
@@ -373,7 +372,7 @@ public abstract class Resource extends Core implements ResourceIF {
             this.setParam(ConstantsIF.THEME, ConstantsIF.THEMES + "/" + (String) objTheme);
          } else {
             throw new Exception("JSON Object for config '" + path.getFileName().toString()
-                  + "' does not have a 'theme' String attribute, JSON='" + joConfig.toJSONString() + "'");
+               + "' does not have a 'theme' String attribute, JSON='" + joConfig.toJSONString() + "'");
          }
       } else {
          throw new Exception("Argument 'filename' is empty.");
@@ -385,9 +384,9 @@ public abstract class Resource extends Core implements ResourceIF {
    }
 
    /**
-    * Get the Reponse Status related to the STATE
-    * 
-    * @param state
+    * Get the Response Status related to the STATE
+    *
+    * @param state enum value for STATE
     * @return Response.Status
     */
    protected Response.Status getStatusFromState(final STATE state) {
@@ -413,18 +412,18 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Abort processing of the web request
-    * 
+    *
     * @param method name of the method that invoked this method
-    * @param msg    message describing the situation
+    * @param msg message describing the situation
     * @param status HTTP Response status
-    * @throws WebApplicationException
+    * @throws WebApplicationException could not continue execution
     */
    protected void abort(final String method, final String msg, final Response.Status status)
-         throws WebApplicationException {
+      throws WebApplicationException {
       Response response = null;
 
       _logger.log(Level.SEVERE, "{0}:{1}: {2}",
-            new Object[] { CLASS, (method == null ? "" : method), (msg == null ? "null message" : msg) });
+         new Object[]{CLASS, (method == null ? "" : method), (msg == null ? "null message" : msg)});
 
       response = Response.status(status).type(MediaType.TEXT_PLAIN).entity(method + ": " + msg).build();
 
@@ -433,7 +432,7 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Get the JSONParser object from the ServletContext
-    * 
+    *
     * @param ctx ServletContext
     * @return JSONParser
     */
@@ -459,8 +458,8 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Get HTTP Response object from JSON object in the OperationIF object
-    * 
-    * @param uri  HTTP UriInfo
+    *
+    * @param uri HTTP UriInfo
     * @param oper OperationIF
     * @return Response
     */
@@ -475,7 +474,7 @@ public abstract class Resource extends Core implements ResourceIF {
       _logger.entering(CLASS, METHOD);
 
       if (_logger.isLoggable(Level.FINE)) {
-         _logger.log(Level.FINE, METHOD + ": oper=''{0}''", new Object[] { oper != null ? oper.toString() : NULL });
+         _logger.log(Level.FINE, METHOD + ": oper=''{0}''", new Object[]{oper != null ? oper.toString() : NULL});
       }
 
       if (oper == null) {
@@ -485,17 +484,17 @@ public abstract class Resource extends Core implements ResourceIF {
       if (oper.isError()) {
          if (oper.getState() == STATE.ERROR) {
             response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).type(MediaType.TEXT_PLAIN)
-                  .entity((oper.getStatus())).build();
+               .entity((oper.getStatus())).build();
          } else {
             response = Response.status(Response.Status.BAD_REQUEST).type(MediaType.TEXT_PLAIN)
-                  .entity((oper.getStatus())).build();
+               .entity((oper.getStatus())).build();
          }
       } else {
          jsonOutput = oper.getJSON();
 
          if (_logger.isLoggable(Level.FINE)) {
             _logger.log(Level.FINE, METHOD + ": json=''{0}''",
-                  new Object[] { jsonOutput != null ? jsonOutput.toString() : NULL });
+               new Object[]{jsonOutput != null ? jsonOutput.toString() : NULL});
          }
 
          if (jsonOutput == null) {
@@ -503,55 +502,55 @@ public abstract class Resource extends Core implements ResourceIF {
          }
 
          switch (oper.getType()) {
-         case CREATE: {
-            builder = uri.getAbsolutePathBuilder();
-            /*
+            case CREATE: {
+               builder = uri.getAbsolutePathBuilder();
+               /*
              * If the operation was initially a PUT, the URI has the UID The operation
              * object will be non-null if the CREATE was a REPLACE
-             */
-            if (oper.getObject() == null) {
-               str = this.getUidFromOperation(oper);
-               builder.path(str);
-            }
+                */
+               if (oper.getObject() == null) {
+                  str = this.getUidFromOperation(oper);
+                  builder.path(str);
+               }
 
-            response = Response.created(builder.build()).build();
-            break;
-         }
-         case READ: {
-            response = Response.status(this.getStatusFromState(oper.getState())).type(MediaType.APPLICATION_JSON)
+               response = Response.created(builder.build()).build();
+               break;
+            }
+            case READ: {
+               response = Response.status(this.getStatusFromState(oper.getState())).type(MediaType.APPLICATION_JSON)
                   .entity(jsonOutput.toString()).build();
-            break;
-         }
-         case REPLACE: {
-            switch (oper.getState()) {
-            case FAILED: {
-               response = Response.status(this.getStatusFromState(oper.getState())).entity(oper.getStatus()).build();
                break;
             }
-            case NOTEXIST: {
-               response = Response.status(Response.Status.NOT_FOUND).build();
+            case REPLACE: {
+               switch (oper.getState()) {
+                  case FAILED: {
+                     response = Response.status(this.getStatusFromState(oper.getState())).entity(oper.getStatus()).build();
+                     break;
+                  }
+                  case NOTEXIST: {
+                     response = Response.status(Response.Status.NOT_FOUND).build();
+                     break;
+                  }
+                  default: {
+                     response = Response.noContent().build();
+                     break;
+                  }
+               }
                break;
             }
-            default: {
+            case DELETE: {
                response = Response.noContent().build();
                break;
             }
+            case SEARCH: {
+               jsonUids = this.getUidsFromSearch(jsonOutput);
+               str = jsonUids.toJSONString();
+               response = Response.ok().type(MediaType.APPLICATION_JSON).entity(str).build();
+               break;
             }
-            break;
-         }
-         case DELETE: {
-            response = Response.noContent().build();
-            break;
-         }
-         case SEARCH: {
-            jsonUids = this.getUidsFromSearch(jsonOutput);
-            str = jsonUids.toJSONString();
-            response = Response.ok().type(MediaType.APPLICATION_JSON).entity(str).build();
-            break;
-         }
-         default: {
-            break;
-         }
+            default: {
+               break;
+            }
          }
       }
 
@@ -562,7 +561,7 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Get the Uid value from the JSON data in the OperationIF object
-    * 
+    *
     * @param oper OperationIF object
     * @return String Uid value
     */
@@ -598,15 +597,15 @@ public abstract class Resource extends Core implements ResourceIF {
 
    /**
     * Get unique ids from JSON results object
-    * 
-    * The search response may have different formating options:
-    * 
+    *
+    * The search response may have different formatting options:
+    *
     * <pre>
-    * 1) The "array" could be named "result" or "results" ... 
+    * 1) The "array" could be named "result" or "results" ...
     *    { "result": [ {...} ] }
     *    { "results": [ * {...} ] }
-    * 2) The unique id for a entry could be "_id" or "uid" ... 
-    *    { "_id": "..." } 
+    * 2) The unique id for a entry could be "_id" or "uid" ...
+    *    { "_id": "..." }
     *    { "uid": "..." }
     * </pre>
     *

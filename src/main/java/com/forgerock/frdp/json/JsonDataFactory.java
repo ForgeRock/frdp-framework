@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2015-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.json;
 
 import com.forgerock.frdp.common.Core;
@@ -17,9 +16,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
- * Manages the access to JSON files. Reads filesystem JSON files and exposes
+ * Manages the access to JSON files. Reads file system JSON files and exposes
  * them as JSONObjects.
- * 
+ *
  * @author Scott Fehrman, ForgeRock, Inc.
  */
 public class JsonDataFactory extends Core {
@@ -30,10 +29,10 @@ public class JsonDataFactory extends Core {
 
    /**
     * Constructor
-    * 
-    * @param propFile name of the Property file in the relative filesystem
-    * @param propName name of a Property whos value is the JSON file name
-    * @throws Exception
+    *
+    * @param propFile name of the Property file in the relative file system
+    * @param propName name of a Property who's value is the JSON file name
+    * @throws Exception could not create instance of Factory
     */
    public JsonDataFactory(String propFile, String propName) throws Exception {
       super();
@@ -46,7 +45,7 @@ public class JsonDataFactory extends Core {
 
       if (_logger.isLoggable(Level.FINE)) {
          _logger.log(Level.FINE, "propFile=''{0}'', propName=''{1}''",
-               new Object[] { propFile != null ? propFile : NULL, propName != null ? propName : NULL });
+            new Object[]{propFile != null ? propFile : NULL, propName != null ? propName : NULL});
       }
 
       if (STR.isEmpty(propFile)) {
@@ -104,11 +103,11 @@ public class JsonDataFactory extends Core {
    }
 
    /**
-    * Get the JSONObject. Uses the value from the Property which contains the name
-    * of the JSON file in the file system.
-    * 
+    * Get the JSONObject. Uses the value from the Property which contains the
+    * name of the JSON file in the file system.
+    *
     * @return JSONObject the JSON object representing the JSON file
-    * @throws Exception
+    * @throws Exception could not get the JSONObject instance
     */
    public JSONObject getData() throws Exception {
       Object obj = null;
@@ -121,7 +120,7 @@ public class JsonDataFactory extends Core {
       _logger.entering(CLASS, METHOD);
 
       if (_logger.isLoggable(Level.FINE)) {
-         _logger.log(Level.FINE, "propName=''{0}''", new Object[] { _propName != null ? _propName : NULL });
+         _logger.log(Level.FINE, "propName=''{0}''", new Object[]{_propName != null ? _propName : NULL});
       }
 
       configFile = this.getParamNotEmpty(_propName);

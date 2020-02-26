@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2015-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.handler;
 
 import com.forgerock.frdp.common.Core;
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  * Abstract class that implements the HandlerIF interface
- * 
+ *
  * @author Scott Fehrman, ForgeRock Inc.
  */
 public abstract class Handler extends Core implements HandlerIF {
@@ -34,25 +33,24 @@ public abstract class Handler extends Core implements HandlerIF {
 
    /**
     * Writes the current Status and State to a specific log level
-    * 
+    *
     * @param level a valid Log level
     */
    @Override
    public void logStateStatus(Level level) {
 
       _logger.log(level, "{0}: {1}",
-            new Object[] { this.getState().toString(), (this.getStatus() != null ? this.getStatus() : NULL) });
+         new Object[]{this.getState().toString(), (this.getStatus() != null ? this.getStatus() : NULL)});
 
       return;
    }
 
    /* ================= PROTECTED METHODS ================= */
-
    /**
-    * Load paramters from the provided Properties
+    * Load parameters from the provided Properties
     *
     * @param propFileName name of the property file
-    * @throws Exception
+    * @throws Exception Could not load properties
     */
    protected final void loadParamsFromProperties(final String propFileName) throws Exception {
       String METHOD = Thread.currentThread().getStackTrace()[1].getMethodName();
@@ -67,11 +65,11 @@ public abstract class Handler extends Core implements HandlerIF {
    }
 
    /**
-    * Creates a Map<String, String> from the provided Propety file name
+    * Creates a map from the provided Property file name
     *
     * @param propFileName name of the property file
-    * @return Map<String, String> the params map
-    * @throws Exception
+    * @return Map the params map
+    * @throws Exception Could not get the parameters
     */
    protected final Map<String, String> getParamsFromProperties(final String propFileName) throws Exception {
       String METHOD = Thread.currentThread().getStackTrace()[1].getMethodName();
