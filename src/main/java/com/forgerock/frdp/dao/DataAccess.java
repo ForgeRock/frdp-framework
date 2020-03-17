@@ -82,11 +82,13 @@ public abstract class DataAccess extends Core implements DataAccessIF {
          throw new Exception("JSON Input is null or empty");
       }
 
-      // read, update, delete may have a "uid" attribute
-      if (oper.getType() == OperationIF.TYPE.READ || oper.getType() == OperationIF.TYPE.REPLACE
+      // read, update, delete must have a "uid" or "uri" attribute
+      if (oper.getType() == OperationIF.TYPE.READ 
+         || oper.getType() == OperationIF.TYPE.REPLACE
          || oper.getType() == OperationIF.TYPE.DELETE) {
-         if (STR.isEmpty(JSON.getString(jsonInput, ConstantsIF.UID))) {
-            throw new Exception("JSON attribute 'uid' is empty");
+         if (STR.isEmpty(JSON.getString(jsonInput, ConstantsIF.UID)) 
+            && STR.isEmpty(JSON.getString(jsonInput, ConstantsIF.URI))) {
+            throw new Exception("Must have JSON attribute 'uid' or 'uri'");
          }
       }
 
