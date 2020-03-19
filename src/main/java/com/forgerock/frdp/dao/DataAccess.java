@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2018-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2018-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.dao;
 
 import com.forgerock.frdp.common.ConstantsIF;
@@ -17,7 +16,7 @@ import org.json.simple.JSONObject;
 /**
  * Abstract class that implements the DataAccessIF interface. This must be
  * sub-classes
- * 
+ *
  * @author Scott Fehrman, ForgeRock, Inc.
  */
 public abstract class DataAccess extends Core implements DataAccessIF {
@@ -37,7 +36,7 @@ public abstract class DataAccess extends Core implements DataAccessIF {
    /**
     * Create object from existing object
     *
-    * @param data
+    * @param data existing DataAccessIF object
     */
    public DataAccess(final DataAccessIF data) {
       super(data);
@@ -46,8 +45,8 @@ public abstract class DataAccess extends Core implements DataAccessIF {
 
    /**
     * Create object from parameters
-    * 
-    * @param params
+    *
+    * @param params instance of existing Map
     */
    public DataAccess(final Map<String, String> params) {
       super(params);
@@ -57,13 +56,12 @@ public abstract class DataAccess extends Core implements DataAccessIF {
    /*
     * ================= PROTECTED METHODS =================
     */
-
    /**
     * Validate the OperationIF object: not null, contains JSON, check required
-    * attributes based on the opertion
-    * 
+    * attributes based on the operation
+    *
     * @param oper the OperationIF object
-    * @throws Exception
+    * @throws Exception could not validate the operation
     */
    protected void validate(final OperationIF oper) throws Exception {
       String METHOD = Thread.currentThread().getStackTrace()[1].getMethodName();
@@ -84,17 +82,17 @@ public abstract class DataAccess extends Core implements DataAccessIF {
          throw new Exception("JSON Input is null or empty");
       }
 
-      // read, update, delete may have a "uid" attribute
-
-      if (oper.getType() == OperationIF.TYPE.READ || oper.getType() == OperationIF.TYPE.REPLACE
-            || oper.getType() == OperationIF.TYPE.DELETE) {
-         if (STR.isEmpty(JSON.getString(jsonInput, ConstantsIF.UID))) {
-            throw new Exception("JSON attribute 'uid' is empty");
+      // read, update, delete must have a "uid" or "uri" attribute
+      if (oper.getType() == OperationIF.TYPE.READ 
+         || oper.getType() == OperationIF.TYPE.REPLACE
+         || oper.getType() == OperationIF.TYPE.DELETE) {
+         if (STR.isEmpty(JSON.getString(jsonInput, ConstantsIF.UID)) 
+            && STR.isEmpty(JSON.getString(jsonInput, ConstantsIF.URI))) {
+            throw new Exception("Must have JSON attribute 'uid' or 'uri'");
          }
       }
 
       // create and update require a "data" or "form" object
-
       if (oper.getType() == OperationIF.TYPE.CREATE || oper.getType() == OperationIF.TYPE.REPLACE) {
          if (jsonInput.containsKey(ConstantsIF.DATA)) {
             jsonData = JSON.getObject(jsonInput, ConstantsIF.DATA);
@@ -114,7 +112,6 @@ public abstract class DataAccess extends Core implements DataAccessIF {
       }
 
       // search requires a "query" JSON object
-
       if (oper.getType() == OperationIF.TYPE.SEARCH) {
          jsonQuery = JSON.getObject(jsonInput, ConstantsIF.QUERY);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2018-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
 
@@ -19,7 +19,7 @@ public interface HandlerManagerIF extends CoreIF {
 
    public Set<String> getNames();
 
-   public boolean containsHandler(String name);
+   public boolean contains(String name);
 
    public HandlerIF getHandler(String name);
 
