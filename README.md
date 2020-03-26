@@ -19,12 +19,10 @@ The following items must be installed:
 
 ## Build
 
-Run "maven" processes to clean, compile, install:
+Run "maven" processes to clean, compile, install the jar package:
 
 ```bash
-mvn clean
-mvn compile
-mvn install
+mvn clean compile install
 ```
 
 Packages are added to the user's home folder:
