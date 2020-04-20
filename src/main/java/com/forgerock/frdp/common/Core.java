@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2015-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.common;
 
 import com.forgerock.frdp.utils.STR;
@@ -11,9 +10,9 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Abstract class that implments the CoreIF interfaces. Provides core services
+ * Abstract class that implements the CoreIF interfaces. Provides core services
  * to classes that extend this class.
- * 
+ *
  * @author Scott Fehrman, ForgeRock, Inc.
  */
 public abstract class Core implements CoreIF {
@@ -57,8 +56,8 @@ public abstract class Core implements CoreIF {
    }
 
    /**
-    * Create a CoreIF object from a paramters map
-    * 
+    * Create a CoreIF object from a parameters map
+    *
     * @param params map of key / value Strings
     */
    public Core(final Map<String, String> params) {
@@ -116,7 +115,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Set the Error flag. If "true" the STATE is set to ERROR
-    * 
+    *
     * @param error boolean
     */
    @Override
@@ -130,7 +129,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get the value of the Error flag
-    * 
+    *
     * @return boolean is there an error
     */
    @Override
@@ -140,7 +139,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Set the value of the Debug flag
-    * 
+    *
     * @param debug true / false
     */
    @Override
@@ -151,7 +150,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get the value of the Debug flag
-    * 
+    *
     * @return boolean
     */
    @Override
@@ -161,7 +160,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Set the status attribute
-    * 
+    *
     * @param status String value
     */
    @Override
@@ -175,7 +174,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get the status attribute, may be null
-    * 
+    *
     * @return String value of the attribute
     */
    @Override
@@ -191,7 +190,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Set the State attribute. If STATE.ERROR then the Error flag is true
-    * 
+    *
     * @param state enum STATE value
     */
    @Override
@@ -207,7 +206,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get the State attribute.
-    * 
+    *
     * @return STATE enum value
     */
    @Override
@@ -217,8 +216,8 @@ public abstract class Core implements CoreIF {
 
    /**
     * Set a parameter (key / value pair).
-    * 
-    * @param name  the parameter name (not empty)
+    *
+    * @param name the parameter name (not empty)
     * @param value the parameter value
     */
    @Override
@@ -240,7 +239,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get a parameter value.
-    * 
+    *
     * @param name the parameter's name
     * @return String the parameter's value
     */
@@ -256,9 +255,9 @@ public abstract class Core implements CoreIF {
    }
 
    /**
-    * Get the parameter value, the value can NOT be empty. If the name is empty, or
-    * the value is empty an Exception is thrown
-    * 
+    * Get the parameter value, the value can NOT be empty. If the name is empty,
+    * or the value is empty an Exception is thrown
+    *
     * @param name the parameter's name
     * @return String the parameter's value
     * @throws Exception if name or value is empty
@@ -282,7 +281,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Sets all parameters. Existing parameters are replaced.
-    * 
+    *
     * @param params Map of parameters
     */
    @Override
@@ -306,8 +305,8 @@ public abstract class Core implements CoreIF {
 
    /**
     * Sets all parameters. Existing parameters are replaced.
-    * 
-    * @param params Properties
+    *
+    * @param props instance of Properties object
     */
    @Override
    public synchronized void setParams(final Properties props) {
@@ -332,7 +331,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get all the parameters as a Map, may be null
-    * 
+    *
     * @return Map parameters
     */
    @Override
@@ -358,7 +357,7 @@ public abstract class Core implements CoreIF {
    /**
     * Merge parameters into existing parameters. If a parameter's name already
     * exists, it will be replaced.
-    * 
+    *
     * @param params Map of parameters
     */
    @Override
@@ -378,7 +377,7 @@ public abstract class Core implements CoreIF {
             _params.put(name, value);
          }
       }
-      
+
       return;
    }
 
@@ -411,7 +410,7 @@ public abstract class Core implements CoreIF {
 
    /**
     * Set a timestamp's value to the current time.
-    * 
+    *
     * @param ts enum TSTAMP
     */
    @Override
@@ -424,8 +423,8 @@ public abstract class Core implements CoreIF {
 
    /**
     * Get a timestamp's value.
-    * 
-    * @param te enum TSTAMP
+    *
+    * @param ts enum TSTAMP
     */
    @Override
    public final long getTStamp(final TSTAMP ts) {

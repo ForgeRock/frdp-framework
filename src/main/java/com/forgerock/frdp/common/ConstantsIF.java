@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
 
@@ -73,9 +73,11 @@ public interface ConstantsIF {
    public static final String DENY = "deny";
    public static final String DESCRIPTION = "description";
    public static final String DIRECTORY = "directory";
+   public static final String DISABLED = "disabled";
    public static final String DISCOVER = "discover";
    public static final String DISCOVERABLE = "discoverable";
    public static final String EQUAL = "equal";
+   public static final String ENABLED = "enabled";
    public static final String ERROR = "error";
    public static final String ERROR_DESCRIPTION = "error_description";
    public static final String EXCEPTION_NOT_IMPLEMENTED = "Not Implemented";
@@ -116,6 +118,7 @@ public interface ConstantsIF {
    public static final String OFF = "off";
    public static final String OPENID = "openid";
    public static final String OPERATION = "operation";
+   public static final String OPERATIONS = "operations";
    public static final String OPERATOR = "operator";
    public static final String OPTION = "option";
    public static final String OPTIONS = "options";
@@ -143,6 +146,7 @@ public interface ConstantsIF {
    public static final String QUERY_PARAMS = "queryParams";
    public static final String READ = "read";
    public static final String REDIRECT_URI = "redirect_uri";
+   public static final String REFERENCE = "reference";
    public static final String REFRESH = "refresh";
    public static final String REFRESH_TOKEN = "refresh_token";
    public static final String REGISTER = "register";
@@ -161,6 +165,8 @@ public interface ConstantsIF {
    public static final String SCOPE = "scope";
    public static final String SCOPES = "scopes";
    public static final String SECTIONS = "sections";
+   public static final String SERVICE = "service";
+   public static final String SERVICES = "services";
    public static final String SESSION_JWT = "session-jwt";
    public static final String SHARE = "share";
    public static final String SHARED = "shared";
@@ -195,6 +201,7 @@ public interface ConstantsIF {
    public static final String UNLOAD = "unload";
    public static final String UPDATE = "update";
    public static final String UPDATED = "updated";
+   public static final String URI = "uri";
    public static final String USER = "user";
    public static final String USERID = "userId";
    public static final String USERNAME = "userName";

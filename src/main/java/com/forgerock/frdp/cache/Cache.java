@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2019-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.cache;
 
 import com.forgerock.frdp.common.Core;
@@ -17,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  * Abstract class that implements the CacheIF interface.
- * 
+ *
  * @author Scott Fehrman, ForgeRock, Inc.
  */
 public abstract class Cache extends Core implements CacheIF {
@@ -51,12 +50,12 @@ public abstract class Cache extends Core implements CacheIF {
    }
 
    /**
-    * Add data to the cache using the key. A cache entry with an existing key will
-    * be replaced.
+    * Add data to the cache using the key. A cache entry with an existing key
+    * will be replaced.
     *
-    * @param key  the unique identifier for the data
+    * @param key the unique identifier for the data
     * @param data the DataIF interface object that will be stored in the cache
-    * @throws Exception
+    * @throws Exception could not save data to cache
     */
    @Override
    public void put(String key, DataIF data) throws Exception {
@@ -84,12 +83,12 @@ public abstract class Cache extends Core implements CacheIF {
    }
 
    /**
-    * Get the data from the cache that is related to the key. A null value will be
-    * returned if an entry does not exist.
+    * Get the data from the cache that is related to the key. A null value will
+    * be returned if an entry does not exist.
     *
     * @param key the unique identifier for the data
     * @return DataIF a DataIF interface object, may be null
-    * @throws Exception
+    * @throws Exception could not get data from the cache
     */
    @Override
    public DataIF get(String key) throws Exception {
@@ -130,7 +129,7 @@ public abstract class Cache extends Core implements CacheIF {
     * Remove the data from the cache that is related to the key.
     *
     * @param key the unique identifier for the data
-    * @throws Exception
+    * @throws Exception could not remove data from the cache
     */
    @Override
    public void remove(String key) throws Exception {

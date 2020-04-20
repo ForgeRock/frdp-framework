@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
 
@@ -9,7 +9,7 @@ import com.forgerock.frdp.common.CoreIF;
 import java.util.logging.Level;
 
 /**
- * Inteface for Handler classes
+ * Interface for Handler classes
  * 
  * @author Scott Fehrman, ForgeRock Inc.
  */
