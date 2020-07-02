@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2018-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2018-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.handler;
 
 import com.forgerock.frdp.common.Core;
@@ -14,7 +13,7 @@ import java.util.Set;
 
 /**
  * Manages Handler Objects
- * 
+ *
  * @author Scott Fehrman, ForgeRock, Inc.
  */
 public class HandlerManager extends Core implements HandlerManagerIF {
@@ -42,8 +41,8 @@ public class HandlerManager extends Core implements HandlerManagerIF {
 
    /**
     * Get Map of the Handlers
-    * 
-    * @return _map a Map<String, HandlerIF> of handlers
+    *
+    * @return Map a map of handlers
     */
    @Override
    public Map<String, HandlerIF> getHandlers() {
@@ -51,9 +50,9 @@ public class HandlerManager extends Core implements HandlerManagerIF {
    }
 
    /**
-    * Get the Handler names as a Set<String>
+    * Get the Handler names as a Set
     *
-    * @return Set<String> handler names
+    * @return Set handler names
     */
    @Override
    public Set<String> getNames() {
@@ -62,12 +61,12 @@ public class HandlerManager extends Core implements HandlerManagerIF {
 
    /**
     * Check is a given Handler exists
-    * 
+    *
     * @param name the Handler name
     * @return boolean
     */
    @Override
-   public boolean containsHandler(String name) {
+   public boolean contains(String name) {
       boolean found = false;
 
       if (!STR.isEmpty(name)) {
@@ -79,7 +78,7 @@ public class HandlerManager extends Core implements HandlerManagerIF {
 
    /**
     * Get the Handler related to the name
-    * 
+    *
     * @param name the Handler name
     * @return HandlerIF the Handler
     */
@@ -96,9 +95,9 @@ public class HandlerManager extends Core implements HandlerManagerIF {
 
    /**
     * Set the Handler using the specified name
-    * 
-    * @param name    the Handler name
-    * @param hnadler the HandlerIF object
+    *
+    * @param name the Handler name
+    * @param handler the HandlerIF object
     */
    @Override
    public void setHandler(String name, HandlerIF handler) {

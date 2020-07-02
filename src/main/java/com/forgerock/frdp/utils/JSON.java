@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2018-2019, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2018-2020, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
-
 package com.forgerock.frdp.utils;
 
 import java.util.HashMap;
@@ -13,10 +12,9 @@ import org.json.simple.JSONObject;
 
 /**
  * JSON utilities, methods for processing JSONObject objects
- * 
+ *
  * @author Scott Fehrman, ForgeRock, Inc.
  */
-
 public class JSON {
 
    private static enum Type {
@@ -99,8 +97,8 @@ public class JSON {
    }
 
    /**
-    * Convert the JSON object to a Map<String, String> of key / value pairs
-    * 
+    * Convert the JSON object to a Map of key / value pairs
+    *
     * <pre>
     * JSON:
     * {
@@ -133,9 +131,9 @@ public class JSON {
     * obj2.obj3.attr6 value 6
     *
     * </pre>
-    * 
-    * @param json
-    * @return
+    *
+    * @param json JSONObject instance
+    * @return Map map of key - value pairs
     */
    public static synchronized Map<String, String> convertToParams(final JSONObject json) {
       Map<String, String> map = null;
@@ -151,18 +149,16 @@ public class JSON {
    /*
     * =============== PRIVATE METHODS ===============
     */
-
    /**
-    * Load provided Map<String, String> from JSON data. The map entry name is a
-    * period "." delimated string of the JSON attribute names. This is a recursive
-    * method.
-    * 
-    * @param map    Map<String, String> that will be updated
-    * @param json   JSONObject
+    * Load provided Map from JSON data. The map entry name is a period "."
+    * delimited string of the JSON attribute names. This is a recursive method.
+    *
+    * @param map Map that will be updated
+    * @param json JSONObject JSON data
     * @param prefix String prefix for map entry name
     */
    private static synchronized void loadMapFromObject(final Map<String, String> map, JSONObject json,
-         final String prefix) {
+      final String prefix) {
       int index = 0;
       Object obj = null;
       Object item = null;
@@ -220,27 +216,27 @@ public class JSON {
     *
     * Get JSON object using the object name. Process each level using the name
     * "data.foo.bar"
-    * 
+    *
     * <pre>
-    * { 
-    *   "data": { 
-    *     "foo": { 
-    *       "bar": { ... } 
-    *     } 
-    *   } 
+    * {
+    *   "data": {
+    *     "foo": {
+    *       "bar": { ... }
+    *     }
+    *   }
     * }
     * </pre>
-    * 
+    *
     * Process each level using the name "data.results[0]"
-    * 
+    *
     * <pre>
-    * { 
-    *   "data": { 
-    *     "results": [ { ... } ] 
-    *   } 
+    * {
+    *   "data": {
+    *     "results": [ { ... } ]
+    *   }
     * }
     * </pre>
-    * 
+    *
     * String.split() ... need to handle "dot/period" as literal character
     *
     * @param json JSONObject
