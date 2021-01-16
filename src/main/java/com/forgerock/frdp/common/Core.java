@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ForgeRock, Inc., All rights reserved
+ * Copyright (c) 2015-2021, ForgeRock, Inc., All rights reserved
  * Use subject to license terms.
  */
 package com.forgerock.frdp.common;
@@ -36,19 +36,19 @@ public abstract class Core implements CoreIF {
    /**
     * Create a CoreIF object from an existing CoreIF object
     *
-    * @param base existing CoreIF object
+    * @param core existing CoreIF object
     */
-   public Core(final CoreIF base) {
+   public Core(final CoreIF core) {
       this.init();
 
-      if (base != null) {
-         _error = base.isError();
-         _status = base.getStatus();
-         _state = base.getState();
-         _params = base.getParams();
+      if (core != null) {
+         _error = core.isError();
+         _status = core.getStatus();
+         _state = core.getState();
+         _params = core.getParams();
 
          for (TSTAMP ts : TSTAMP.values()) {
-            _tstamps.put(ts, base.getTStamp(ts));
+            _tstamps.put(ts, core.getTStamp(ts));
          }
       }
 
@@ -70,6 +70,33 @@ public abstract class Core implements CoreIF {
          }
       }
 
+      return;
+   }
+   
+   /**
+    * Create a CoreIF object from Properties
+    * 
+    * @param props Properties
+    */
+   public Core(final Properties props) {
+      String value = null;
+      
+      this.init();
+      
+      if (props != null && !props.isEmpty()) {
+         _params = new HashMap<>();
+
+         for (Object key : props.keySet()) {
+            if (key != null && key instanceof String) {
+               value = props.getProperty((String) key);
+               if (value != null) {
+                  value = new String(value);
+               }
+               _params.put((String) key, value);
+            }
+         }
+      }
+      
       return;
    }
 
@@ -312,7 +339,7 @@ public abstract class Core implements CoreIF {
    public synchronized void setParams(final Properties props) {
       String value = null;
 
-      if (props != null && props.size() > 0) {
+      if (props != null && !props.isEmpty()) {
          _params = new HashMap<>();
 
          for (Object key : props.keySet()) {

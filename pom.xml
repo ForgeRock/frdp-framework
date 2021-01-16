@@ -31,4 +31,5 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+    <name>FRDP Framework</name>
 </project>
