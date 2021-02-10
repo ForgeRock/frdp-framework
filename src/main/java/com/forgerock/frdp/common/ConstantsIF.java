@@ -90,6 +90,10 @@ public interface ConstantsIF {
    public static final String GIVENNAME = "givenName";
    public static final String GRANT_TYPE = "grant_type";
    public static final String GUIDS = "guids";
+   public static final String HDR_ACCEPT = "Accept";
+   public static final String HDR_ACCEPT_API_VERSION = "Accept-API-Version";
+   public static final String HDR_AUTHORIZATION = "Authorization";
+   public static final String HDR_CONTENT_TYPE = "Content-Type";
    public static final String HEADERS = "headers";
    public static final String HOST = "host";
    public static final String HTML = "html";

@@ -17,7 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 The following items must be installed:
 
 1. [Apache Maven](https://maven.apache.org/)
-1. [Java Development Kit 8](https://openjdk.java.net/)
+1. [Java Development Kit 11](https://openjdk.java.net/projects/jdk/11/)
 
 ## Build
 
@@ -33,9 +33,9 @@ Packages are added to the user's home folder:
 find ~/.m2/repository/com/forgerock/frdp/frdp-framework
 /home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework
 /home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/maven-metadata-local.xml
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/frdp-framework-1.1.0.pom
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/_remote.repositories
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/maven-metadata-local.xml
-/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.1.0/frdp-framework-1.1.0.jar
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.2.0
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.2.0/frdp-framework-1.2.0.pom
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.2.0/_remote.repositories
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.2.0/maven-metadata-local.xml
+/home/forgerock/.m2/repository/com/forgerock/frdp/frdp-framework/1.2.0/frdp-framework-1.2.0.jar
 ```
